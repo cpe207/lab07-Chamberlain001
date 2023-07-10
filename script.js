@@ -32,11 +32,13 @@ passwordInput.onkeyup = () => {
 };
 
 submitBtn.onclick = () => {
+  let AllChecked = 0;
   if (firstNameInput.value === "") {
     firstNameInput.classList.add("is-invalid");
   }
   if (firstNameInput.value !== "") {
     firstNameInput.classList.add("is-valid");
+    AllChecked++;
   }
 
   if (lastNameInput.value === "") {
@@ -44,6 +46,7 @@ submitBtn.onclick = () => {
   }
   if (lastNameInput.value !== "") {
     lastNameInput.classList.add("is-valid");
+    AllChecked++;
   }
 
   if (validateEmail(emailInput.value) === false) {
@@ -51,6 +54,7 @@ submitBtn.onclick = () => {
   }
   if (validateEmail(emailInput.value) === true) {
     emailInput.classList.add("is-valid");
+    AllChecked++;
   }
 
   if (passwordInput.value === "") {
@@ -59,5 +63,9 @@ submitBtn.onclick = () => {
     passwordInput.classList.add("is-invalid");
   } else if (passwordInput.value !== "") {
     passwordInput.classList.add("is-valid");
+    AllChecked++;
+  }
+  if (AllChecked >= 4) {
+    alert("Registered Successfully");
   }
 };
